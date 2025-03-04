@@ -1,0 +1,80 @@
+---
+import Pagination from "@/components/Pagination.astro";
+import type { Config, Post as PostType } from "@/interface";
+import Base from "@/layouts/Base.astro";
+import { fetchContentType } from "@/lib/strapi";
+import { getBlogIndex } from "@/lib/strapi/getBlogIndex";
+import { getConfig } from "@/lib/strapi/getConfig";
+import { markdownify } from "@/lib/utils/textConverter";
+import Post from "@/partials/Post.astro";
+
+export async function getStaticPaths() {
+  const { settings } = await fetchContentType<Config>(
+    "config",
+    {
+      populate: {
+        settings: {
+          populate: "*",
+        },
+      },
+    },
+    true
+  );
+  const posts = await fetchContentType<PostType[]>("blogs", {
+    populate: "*",
+  });
+  const totalPages = Math.ceil(posts.length / settings.pagination);
+  const paths = [];
+
+  for (let i = 1; i < totalPages; i++) {
+    paths.push({
+      params: {
+        slug: (i + 1).toString(),
+      },
+    });
+  }
+  return paths;
+}
+
+const { slug } = Astro.params;
+const posts = (await fetchContentType("blogs", {
+  populate: "*",
+})) as PostType[];
+
+const { settings } = await getConfig();
+const postIndex = await getBlogIndex();
+const sortedPosts = posts.sort((a, b) => {
+  return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+});
+
+const totalPages = Math.ceil(posts.length / settings.pagination);
+const currentPage = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
+const indexOfLastPost = currentPage * settings.pagination;
+const indexOfFirstPost = indexOfLastPost - settings.pagination;
+const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
+---
+
+<Base title={postIndex?.title}>
+  <section class="section">
+    <div class="container">
+      <h1
+        class="mb-10 text-center font-normal lg:text-[56px]"
+        set:html={markdownify(postIndex?.title)}
+      />
+      <div class="row">
+        {
+          currentPosts.map((post, index) => (
+            <div class="col-12 mb-8 sm:col-6">
+              <Post post={post} index={index} />
+            </div>
+          ))
+        }
+      </div>
+      <Pagination
+        section={"blog"}
+        totalPages={totalPages}
+        currentPage={currentPage}
+      />
+    </div>
+  </section>
+</Base>

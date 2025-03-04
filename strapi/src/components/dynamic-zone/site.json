@@ -1,0 +1,54 @@
+{
+  "collectionName": "components_dynamic_zone_sites",
+  "info": {
+    "displayName": "site",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "baseUrl": {
+      "type": "string"
+    },
+    "basePath": {
+      "type": "string"
+    },
+    "favicon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "logoWidth": {
+      "type": "integer"
+    },
+    "logoHeight": {
+      "type": "integer"
+    },
+    "logoText": {
+      "type": "string"
+    },
+    "trailingSlash": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

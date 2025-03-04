@@ -1,0 +1,32 @@
+---
+import { getImageInfo } from "@/lib/getImageInfo";
+import { getConfig } from "@/lib/strapi/getConfig";
+import { Image } from "astro:assets";
+
+const { src } = Astro.props;
+
+const { site } = await getConfig();
+const { title, logo, logoWidth, logoHeight, logoText } = site;
+const logoUrl = getImageInfo(logo)?.url;
+---
+
+<a href="/" class="navbar-brand block md:w-[150px] lg:w-auto">
+  {
+    src || logoUrl ? (
+      <Image
+        width={logoWidth * 2}
+        height={logoHeight * 2}
+        src={src ? src : logoUrl}
+        alt={title}
+        style={{
+          height: logoHeight + "px",
+          width: logoWidth + "px",
+        }}
+      />
+    ) : logoText ? (
+      logoText
+    ) : (
+      title
+    )
+  }
+</a>

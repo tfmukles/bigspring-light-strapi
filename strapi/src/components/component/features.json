@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_component_features",
+  "info": {
+    "displayName": "features item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "content": {
+      "type": "text"
+    }
+  }
+}

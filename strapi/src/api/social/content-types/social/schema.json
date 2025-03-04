@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "socials",
+  "info": {
+    "singularName": "social",
+    "pluralName": "socials",
+    "displayName": "Social"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "facebook": {
+      "type": "string"
+    },
+    "twitter": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "youtube": {
+      "type": "string"
+    },
+    "linkedin": {
+      "type": "string"
+    }
+  }
+}

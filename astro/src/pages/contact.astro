@@ -1,0 +1,81 @@
+---
+import type { Config } from "@/interface";
+import Base from "@/layouts/Base.astro";
+import { fetchContentType } from "@/lib/strapi";
+import { getContact } from "@/lib/strapi/getContact";
+import { markdownify } from "@/lib/utils/textConverter";
+
+const { title, description, info } = await getContact();
+
+const { params } = await fetchContentType<Config>("config", {
+  populate: "*",
+});
+---
+
+<Base title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <h1 class="text-center font-normal" set:html={markdownify(title)} />
+      <div class="section row pb-0">
+        <div class="col-12 md:col-6 lg:col-7">
+          <form
+            class="contact-form"
+            method="POST"
+            action={params.contactFormAction ?? ""}
+          >
+            <div class="mb-3">
+              <input
+                class="form-input w-full rounded"
+                name="name"
+                type="text"
+                placeholder="Name"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                class="form-input w-full rounded"
+                name="email"
+                type="email"
+                placeholder="Your email"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                class="form-input w-full rounded"
+                name="subject"
+                type="text"
+                placeholder="Subject"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <textarea
+                class="form-textarea w-full rounded-md"
+                rows="7"
+                placeholder="Your message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary"> Send Now</button>
+          </form>
+        </div>
+        <div class="content col-12 md:col-6 lg:col-5">
+          <h4 set:html={markdownify(info?.title)} />
+          <p class="mt-4" set:html={markdownify(info?.description)} />
+          <ul class="contact-list mt-5 list-none pl-0">
+            {
+              info?.contacts?.map((contact) => (
+                <li>
+                  <strong
+                    class="text-dark"
+                    set:html={markdownify(contact.value)}
+                  />
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

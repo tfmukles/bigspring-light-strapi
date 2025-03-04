@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_component_plan_items",
+  "info": {
+    "displayName": "plan item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.strings"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "month",
+        "year"
+      ]
+    }
+  }
+}

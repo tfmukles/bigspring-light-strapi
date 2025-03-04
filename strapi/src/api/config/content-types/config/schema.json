@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "configs",
+  "info": {
+    "singularName": "config",
+    "pluralName": "configs",
+    "displayName": "Config",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "site": {
+      "type": "component",
+      "repeatable": false,
+      "component": "dynamic-zone.site"
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "dynamic-zone.setting"
+    },
+    "navButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button"
+    },
+    "params": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.params"
+    },
+    "metadata": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.meta-data"
+    }
+  }
+}

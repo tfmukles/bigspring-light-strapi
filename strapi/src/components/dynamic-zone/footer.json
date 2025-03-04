@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_dynamic_zone_footers",
+  "info": {
+    "displayName": "footer"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "menu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.menu-item"
+    }
+  }
+}

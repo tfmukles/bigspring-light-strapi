@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_component_service_items",
+  "info": {
+    "displayName": "service item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

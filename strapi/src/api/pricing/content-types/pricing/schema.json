@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "pricings",
+  "info": {
+    "singularName": "pricing",
+    "pluralName": "pricings",
+    "displayName": "Pricing",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "plans": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.plan-item"
+    },
+    "callToAction": {
+      "type": "component",
+      "repeatable": false,
+      "component": "dynamic-zone.call-to-action"
+    }
+  }
+}

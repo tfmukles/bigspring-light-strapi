@@ -1,0 +1,32 @@
+---
+export const prerender = true;
+
+import type { Post as PostType } from "@/interface";
+import Base from "@/layouts/Base.astro";
+import PostSingle from "@/layouts/PostSingle.astro";
+import { getImageInfo } from "@/lib/getImageInfo";
+import { getBlogs } from "@/lib/strapi/getBlog";
+
+interface Props {
+  post: PostType;
+}
+
+export async function getStaticPaths() {
+  const posts = await getBlogs();
+  const paths = posts.map((post) => ({
+    params: {
+      single: post.id,
+    },
+    props: { post },
+  }));
+  return paths;
+}
+
+const { post } = Astro.props;
+const { title, description, image } = post;
+const { url } = getImageInfo(image) || {};
+---
+
+<Base title={title} meta_title={title} description={description} image={url}>
+  <PostSingle post={post} />
+</Base>

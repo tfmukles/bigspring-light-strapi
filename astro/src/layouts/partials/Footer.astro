@@ -1,0 +1,56 @@
+---
+import Social from "@/components/Social.astro";
+import { getImageInfo } from "@/lib/getImageInfo";
+import { getConfig } from "@/lib/strapi/getConfig";
+import { getNavigation } from "@/lib/strapi/getNavigation";
+import { getSocial } from "@/lib/strapi/getSocial";
+import { markdownify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+
+const { params, site } = await getConfig();
+const { footer } = await getNavigation();
+const social = await getSocial();
+const logoUrl = getImageInfo(site.logo)?.url;
+---
+
+<footer class="section bg-theme-light pb-0">
+  <div class="container">
+    {/* footer menu */}
+    <div class="row">
+      {
+        footer.map((col) => {
+          return (
+            <div class="mb-12 sm:col-6 lg:col-3">
+              <h2 class="h4" set:html={markdownify(col.name)} />
+              <ul class="mt-6">
+                {col?.menu.map((item) => (
+                  <li class="mb-1">
+                    <a href={item.url} rel="">
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })
+      }
+
+      {/* social icons */}
+      <div class="md-12 sm:col-6 lg:col-3">
+        <a href="/" aria-label="Bigspring">
+          <Image
+            src={logoUrl!}
+            width={site.logoWidth}
+            height={site.logoHeight}
+            alt=""
+          />
+        </a>
+
+        <p class="mt-3 mb-6" set:html={markdownify(params.footerContent)} />
+        <Social source={social} className="social-icons mb-8" />
+      </div>
+    </div>
+    {/* copyright */}
+  </div>
+</footer>

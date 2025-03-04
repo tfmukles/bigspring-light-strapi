@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_dynamic_zone_features",
+  "info": {
+    "displayName": "features",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.features"
+    }
+  }
+}

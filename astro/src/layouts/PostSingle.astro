@@ -1,0 +1,43 @@
+---
+import type { Post as PostType } from "@/interface";
+import { getImageInfo } from "@/lib/getImageInfo";
+import { markdownify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+import MarkdownRenderer from "./BlocksRender";
+
+interface Props {
+  post: PostType;
+}
+
+const { post } = Astro.props;
+const { title, image, richText } = post;
+const { url } = getImageInfo(image) || {};
+---
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-center">
+      <div class="col-12 md:col-8">
+        <article class="text-center">
+          {
+            image && (
+              <Image
+                src={url!}
+                height={500}
+                width={1000}
+                alt={title}
+                class="rounded-lg"
+              />
+            )
+          }
+          <h1 set:html={markdownify(title)} class="h2 text-left my-6" />
+          <MarkdownRenderer
+            content={richText}
+            className="mb-16 text-left"
+            client:load
+          />
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

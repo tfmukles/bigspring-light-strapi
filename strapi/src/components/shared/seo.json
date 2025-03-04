@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_seos",
+  "info": {
+    "displayName": "seo",
+    "icon": "hashtag"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "meta_title": {
+      "type": "string"
+    }
+  }
+}

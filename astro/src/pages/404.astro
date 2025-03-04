@@ -1,0 +1,21 @@
+---
+import Base from "@/layouts/Base.astro";
+import BlockRender from "@/layouts/BlocksRender";
+import { getNotfound } from "@/lib/strapi/getNotfound";
+import { markdownify } from "@/lib/utils/textConverter";
+
+const { title, richText } = await getNotfound();
+---
+
+<Base title={title}>
+  <section class="section">
+    <div class="container">
+      <div class="flex h-[40vh] items-center justify-center">
+        <div class="text-center">
+          <h1 class="mb-4" set:html={markdownify(title)} />
+          <BlockRender content={richText} client:load />
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

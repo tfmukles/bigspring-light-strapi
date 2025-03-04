@@ -1,0 +1,85 @@
+---
+import Pagination from "@/components/Pagination.astro";
+import Base from "@/layouts/Base.astro";
+import Post from "@/layouts/partials/Post.astro";
+import { getImageInfo } from "@/lib/getImageInfo";
+import { getBlogs } from "@/lib/strapi/getBlog";
+import { getBlogIndex } from "@/lib/strapi/getBlogIndex";
+import { getConfig } from "@/lib/strapi/getConfig";
+import { markdownify, plainify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+
+const { settings } = await getConfig();
+const posts = await getBlogs();
+const postIndex = await getBlogIndex();
+const sortedPosts = posts.sort((a, b) => {
+  return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+});
+
+const totalPages = Math.ceil(posts.length / settings.pagination);
+const currentPosts = sortedPosts.slice(0, settings.pagination);
+const imageInfo = getImageInfo(currentPosts[0].image);
+---
+
+<Base title={postIndex?.title}>
+  <section class="section">
+    <div class="container">
+      <h1
+        class="text-center font-normal lg:text-[56px]"
+        set:html={markdownify(postIndex?.title)}
+      />
+
+      <div class="row pb-12">
+        <div class="row col-12 pb-24 pt-16">
+          <div class="md:col-6">
+            {
+              currentPosts.length > 0 && (
+                <Image
+                  class="rounded-lg"
+                  src={imageInfo?.url!}
+                  alt={imageInfo?.alternativeText!}
+                  width={925}
+                  height={475}
+                />
+              )
+            }
+          </div>
+
+          <div class="md:col-6">
+            <h2 class="h3 mb-2 mt-4">
+              <a
+                href={`/blog/${currentPosts[0].id}`}
+                class="block hover:text-primary"
+              >
+                {currentPosts[0].title}
+              </a>
+            </h2>
+            <p
+              set:html={plainify(
+                currentPosts[0].richText
+                  ?.toString()
+                  .slice(0, settings.summaryLength)
+              )}
+            />
+            <a
+              class="btn btn-primary mt-4"
+              href={`/blog/${currentPosts[0].id}`}
+              rel=""
+            >
+              Read More
+            </a>
+          </div>
+        </div>
+
+        {
+          currentPosts.slice(1).map((post, index) => (
+            <div class="col-12 mb-8 sm:col-6 lg:col-4">
+              <Post index={index} post={post} />
+            </div>
+          ))
+        }
+      </div>
+      <Pagination section={"blog"} currentPage={1} totalPages={totalPages} />
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_component_params",
+  "info": {
+    "displayName": "Params",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "contactFormAction": {
+      "type": "string"
+    },
+    "tagManagerId": {
+      "type": "string"
+    },
+    "footerContent": {
+      "type": "string"
+    },
+    "copyright": {
+      "type": "string"
+    }
+  }
+}

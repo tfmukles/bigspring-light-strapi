@@ -1,0 +1,38 @@
+---
+import type { Post as PostType } from "@/interface";
+import { getImageInfo } from "@/lib/getImageInfo";
+import { getConfig } from "@/lib/strapi/getConfig";
+import { plainify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+
+interface Props {
+  post: PostType;
+  index: number;
+}
+
+const { settings } = await getConfig();
+const { post, index } = Astro.props;
+const { summaryLength } = settings;
+const imageInfo = getImageInfo(post.image);
+---
+
+<div class="post">
+  {
+    imageInfo?.url && (
+      <Image
+        class="rounded-lg"
+        src={imageInfo.url!}
+        alt={imageInfo.alternativeText!}
+        width={index === 0 ? 925 : 445}
+        height={index === 0 ? 475 : 230}
+      />
+    )
+  }
+  <h2 class="h3 mb-2 mt-4">
+    <a href={`/blog/${post.id}`} class="block hover:text-primary">
+      {post.title}
+    </a>
+  </h2>
+  <p set:html={plainify(post.richText.slice(0, summaryLength))} />
+  <a class="btn btn-primary mt-4" href={`/blog/${post.id}`}> Read More </a>
+</div>

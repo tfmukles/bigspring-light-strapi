@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "navigations",
+  "info": {
+    "singularName": "navigation",
+    "pluralName": "navigations",
+    "displayName": "Menu",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "main": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.menu-item"
+    },
+    "footer": {
+      "type": "component",
+      "repeatable": true,
+      "component": "dynamic-zone.footer"
+    }
+  }
+}

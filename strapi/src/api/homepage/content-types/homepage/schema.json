@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Homepage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "banner": {
+      "type": "component",
+      "repeatable": false,
+      "component": "dynamic-zone.banner"
+    },
+    "services": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.service-item"
+    },
+    "workflow": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.intro"
+    },
+    "call_to_action": {
+      "type": "component",
+      "repeatable": false,
+      "component": "dynamic-zone.call-to-action"
+    },
+    "feature": {
+      "type": "component",
+      "repeatable": false,
+      "component": "dynamic-zone.features"
+    }
+  }
+}
