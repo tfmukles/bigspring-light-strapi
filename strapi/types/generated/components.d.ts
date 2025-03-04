@@ -86,6 +86,7 @@ export interface ComponentPlanItem extends Struct.ComponentSchema {
     button: Schema.Attribute.Component<'shared.button', false>;
     features: Schema.Attribute.Component<'shared.strings', true>;
     price: Schema.Attribute.Decimal;
+    recommended: Schema.Attribute.Boolean;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<['month', 'year']>;
