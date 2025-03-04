@@ -1,6 +1,6 @@
 # Bigspring-light - Official Strapi Demo
 
-![Bigspring-light](./bigspring-light.jpg)
+![Bigspring-light](./bigspring-light.png)
 
 Welcome aboard **Bigspring-light**, the official Strapi demo application, where we launch your content into the stratosphere at the speed of  *"we-can't-even-measure-it!"*.
 This repository contains the following:
