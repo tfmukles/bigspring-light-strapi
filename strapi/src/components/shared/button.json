@@ -6,13 +6,13 @@
   },
   "options": {},
   "attributes": {
-    "label": {
+    "Label": {
       "type": "string"
     },
-    "link": {
+    "Link": {
       "type": "string"
     },
-    "enable": {
+    "Enable": {
       "type": "boolean",
       "default": true
     }

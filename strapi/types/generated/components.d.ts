@@ -7,8 +7,8 @@ export interface ComponentFaqItem extends Struct.ComponentSchema {
     displayName: 'faq item';
   };
   attributes: {
-    answer: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
+    Answer: Schema.Attribute.Text;
+    Title: Schema.Attribute.String;
   };
 }
 
@@ -198,9 +198,9 @@ export interface SharedButton extends Struct.ComponentSchema {
     displayName: 'button';
   };
   attributes: {
-    enable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    label: Schema.Attribute.String;
-    link: Schema.Attribute.String;
+    Enable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    Label: Schema.Attribute.String;
+    Link: Schema.Attribute.String;
   };
 }
 

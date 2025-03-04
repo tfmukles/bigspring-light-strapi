@@ -7,7 +7,7 @@
     "build": "strapi build",
     "deploy": "strapi deploy",
     "develop": "strapi develop",
-    "seed": "strapi import  ./data/bigspring-light.tar.gz",
+    "seed": "strapi import --file ./data/bigspring-light.tar.gz",
     "start": "strapi start",
     "strapi": "strapi",
     "export": "strapi export --file ./data/bigspring-light --no-encrypt"
