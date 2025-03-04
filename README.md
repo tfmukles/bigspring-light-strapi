@@ -1,112 +1,108 @@
 # Bigspring-light - Official Strapi Demo
 
-![Bigspring-light](./bigspring-light.png)
+![Bigspring-light](./bigspring-light.jpg)
 
-Welcome aboard **Bigspring-light**, the official Strapi demo application, where we launch your content into the stratosphere at the speed of  *"we-can't-even-measure-it!"*.
-This repository contains the following:
+Welcome to **Bigspring-light**, the official Strapi demo application! This project is designed to showcase Strapi's capabilities, featuring:
 
-- A Strapi project with content-types and data already onboard
-- A Next.js client that's primed and ready to fetch the content from Strapi faster than you can say "blast off!"
+- A pre-configured Strapi backend with content types and sample data
+- A Next.js frontend optimized to fetch content from Strapi quickly
 
-## 🌌 Get started
+## 🚀 Get Started
 
-Strap yourself in! You can get started with this project on your local machine by following the instructions below, or you can [request a private instance on our website](https://strapi.io/demo)
+You can run this project locally or [request a private instance](https://strapi.io/demo) on our website.
 
 ## 🛠 Prerequisites
 
-Before you take off, make sure you have the right env variables loaded for each part (rocket science at its best):
+Before launching, set up the required environment variables for Strapi and Next.js.
 
-Strapi (example in `./strapi/.env.example`):
-  - `STRAPI_ADMIN_CLIENT_URL=<url-of-nextjs>`
-  - `STRAPI_ADMIN_CLIENT_PREVIEW_SECRET=<a-random-token>`
+### Strapi (`./strapi/.env.example`)
+- `STRAPI_ADMIN_CLIENT_URL=<url-of-nextjs>`
+- `STRAPI_ADMIN_CLIENT_PREVIEW_SECRET=<a-random-token>`
 
-- Create a `./strapi/.env` file with these variables
+Create a `./strapi/.env` file with these variables.
 
-Next.js (example in `./next/.env.sample`):
-  - `NEXT_PUBLIC_API_URL=<url-of-strapi>` (mandatory)
-  - `PREVIEW_SECRET=<the-same-random-token-as-for-strapi>`
+### Next.js (`./next/.env.sample`)
+- `NEXT_PUBLIC_API_URL=<url-of-strapi>` (mandatory)
+- `PREVIEW_SECRET=<the-same-random-token-as-for-strapi>`
 
-- Create a `./next/.env` file with these variables
+Create a `./next/.env` file with these variables.
 
-## 1. Clone bigspring-astro-strapi
+## 🔧 Setup Instructions
 
-To infinity and beyond! 🚀 Clone the repo with this command:
+### 1. Clone the Repository
 
-```
+```sh
 git clone https://github.com/strapi/bigspring-astro-strapi.git
+cd bigspring-astro-strapi
 ```
 
-- Navigate to your project folder by running `cd bigspring-astro-strapi`.
+### 2. Start Strapi
 
-## 2. Start Strapi
+Navigate to the Strapi folder:
 
-Take a deep breath. It's time to power up the Strapi engines. Navigate to your ./my-projects/bigspring-astro-strapi/strapi folder by running:
-
-Navigate to your `./my-projects/bigspring-astro-strapi/strapi` folder by running `cd strapi` from your command line.
-
-- Run the following command in your `./bigspring-astro-strapi/strapi` folder:
-
+```sh
+cd strapi
 ```
+
+Run the following command to install dependencies, seed data, and start the server:
+
+```sh
 yarn && yarn seed && yarn develop
 ```
 
-This will install dependencies, sprinkle in some data magic, and run the server. (You can run these commands separately, but why not be efficient?)
+### 3. Start Next.js
 
-## 3. Start Next.js
+Navigate to the Next.js folder:
 
-We're almost ready for lift-off! Next.js is your sleek, futuristic interface for getting all that glorious content out into the world. 🚀
-
-Navigate to your `./my-projects/bigspring-astro-strapi/next` folder by running `cd next` from your command line.
-
-- Run the following command in your `./bigspring-astro-strapi/next` folder
-
+```sh
+cd ../next
 ```
+
+Run the following command to install dependencies, build, and start the server:
+
+```sh
 yarn && yarn build && yarn start
 ```
 
-This installs dependencies, builds your project, and starts your server. You’re now a spacefaring content master!
+## ✨ Features Overview
 
-## Features Overview ✨
+### User Features
+- **Minimal, intuitive editor** - Dynamic content blocks, fully extensible.
+- **Media Library** - Upload, crop, and optimize images and videos.
+- **Flexible content management** - Define categories, formats, and workflows.
+- **Sorting & Filtering** - Manage large datasets effortlessly.
+- **User-friendly interface** - One of the best open-source CMS UIs.
+- **SEO optimization** - Manage metadata and optimize media assets.
 
-### User
+### Global Features
+- **[Customizable API](https://strapi.io/features/customizable-api)** - Auto-generate REST or GraphQL APIs.
+- **[Media Library](https://strapi.io/features/media-library)** - Centralized file storage and management.
+- **[Role-Based Access Control (RBAC)](https://strapi.io/features/custom-roles-and-permissions)** - Granular user permissions.
+- **[Internationalization (i18n)](https://strapi.io/features/internationalization)** - Multi-language content support.
+- **[Audit Logs](https://strapi.io/blog/reasons-and-best-practices-for-using-audit-logs-in-your-application)** - Track user activity.
+- **[Data Transfer](https://strapi.io/blog/importing-exporting-and-transferring-data-with-the-strapi-cli)** - Migrate data between Strapi instances.
+- **[Review Workflows](https://docs.strapi.io/user-docs/settings/review-workflows)** - Streamlined content approval process.
 
-<br />
+## 📚 Resources
+- [Docs](https://docs.strapi.io)
+- [Demo](https://strapi.io/demo)
+- [Forum](https://forum.strapi.io/)
+- [Discord](https://discord.strapi.io)
+- [YouTube](https://www.youtube.com/c/Strapi/featured)
+- [Strapi Design System](https://design-system.strapi.io/)
+- [Marketplace](https://market.strapi.io/)
+- [Cloud Free Trial](https://cloud.strapi.io)
 
-**An intuitive, minimal editor** The editor allows you to pull in dynamic blocks of content. It’s 100% open-source, and it’s fully extensible.<br />
-**Media Library** Upload images, video or any files and crop and optimize their sizes, without quality loss.<br />
-**Flexible content management** Build any type of category, section, format or flow to adapt to your needs. <br />
-**Sort and Filter** Built-in sorting and filtering: you can manage thousands of entries without effort.<br />
-**User-friendly interface** The most user-friendly open-source interface on the market.<br />
-**SEO optimized** Easily manage your SEO metadata with a repeatable field and use our Media Library to add captions, notes, and custom filenames to optimize the SEO of media assets.<br /><br />
-
-### Global
-
-<br />
-
-[Customizable API](https://strapi.io/features/customizable-api): Automatically build out the schema, models, controllers for your API from the editor. Get REST or GraphQL API out of the box without writing a single line of code.<br />
-[Media Library](https://strapi.io/features/media-library): The media library allows you to store your images, videos and files in your Strapi admin panel with many ways to visualize and manage them.<br />
-[Role-Based Access Control (RBAC)](https://strapi.io/features/custom-roles-and-permissions): Role-Based Access Control is a feature available in the Administration Panel settings that let your team members have access rights only to the information they need.<br />
-[Internationalization (i18n)](https://strapi.io/features/internationalization): Internationalization (i18n) lets you create many content versions, also called locales, in different languages and for different countries.<br />
-[Audit Logs](https://strapi.io/blog/reasons-and-best-practices-for-using-audit-logs-in-your-application)The Audit Logs section provides a searchable and filterable display of all activities performed by users of the Strapi application<br />
-[Data transfer](https://strapi.io/blog/importing-exporting-and-transferring-data-with-the-strapi-cli) Streams your data from one Strapi instance to another Strapi instance.<br />
-[Review Worfklows](https://docs.strapi.io/user-docs/settings/review-workflows) Create and manage any desired review stages for your content, enabling your team to collaborate in the content creation flow from draft to publication. <br />
-
-
-## Resources
-
-[Docs](https://docs.strapi.io) • [Demo](https://strapi.io/demo) • [Forum](https://forum.strapi.io/) • [Discord](https://discord.strapi.io) • [Youtube](https://www.youtube.com/c/Strapi/featured) • [Strapi Design System](https://design-system.strapi.io/) • [Marketplace](https://market.strapi.io/) • [Cloud Free Trial](https://cloud.strapi.io) 
-
-## Todo
-
+## ✅ To-Do List
 - [ ] Implement the official Strapi SEO plugin
 - [ ] Implement the community Strapi preview plugin
-- [ ] Create localized content for the pricing plans and products
-- [ ] Populate creator fields when it'll work on Strapi 5 (article authors information are missing)
+- [ ] Create localized content for pricing plans and products
+- [ ] Populate creator fields when available in Strapi 5
 
-## Customization
+## 🔧 Customization
 
-- The Strapi application contains a custom population middleware in order to populate more data than what it is set by default. You can find it in the `./strapi/src/middlewares/deepPopulate.ts` file.
+- **Custom Population Middleware** - Located in `./strapi/src/middlewares/deepPopulate.ts` to populate additional data.
+- **Post-install Script** - Generates a unique project UUID for anonymous usage analytics (can be disabled in `./strapi/packages.json`).
+- **Admin Package Patch** - Necessary for hosted demos to auto-create Super Admin users.
 
-- The Strapi application contains a postinstall script that will regenerate an uuid for the project in order to get some anonymous usage information concerning this demo. You can disable it by removing the uuid inside the `./strapi/packages.json` file.
-
-- The Strapi application contains a patch for the @strapi/admin package. It is only necessary for the hosted demos since we automatically create the Super Admin users for them when they request this demo on our website.
+Enjoy exploring **Bigspring-light** and experience Strapi’s full potential! 🚀
