@@ -1,7 +1,3 @@
-config/database.ts
-
-
-
 ############################
 # OS X
 ############################
@@ -71,7 +67,6 @@ $RECYCLE.BIN/
 # Logs and databases
 ############################
 
-.tmp
 *.log
 *.sql
 *.sqlite
