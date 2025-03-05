@@ -6,10 +6,10 @@
   },
   "options": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Answer": {
+    "answer": {
       "type": "text"
     }
   }
