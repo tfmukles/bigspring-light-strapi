@@ -142,6 +142,7 @@ export interface Page extends BaseAttributes {
 
 export interface Post extends BaseAttributes {
   image: Image;
+  slug: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;

@@ -29,10 +29,10 @@ const imageInfo = getImageInfo(post.image);
     )
   }
   <h2 class="h3 mb-2 mt-4">
-    <a href={`/blog/${post.id}`} class="block hover:text-primary">
+    <a href={`/blog/${post.slug}`} class="block hover:text-primary">
       {post.title}
     </a>
   </h2>
   <p set:html={plainify(post.richText.slice(0, summaryLength))} />
-  <a class="btn btn-primary mt-4" href={`/blog/${post.id}`}> Read More </a>
+  <a class="btn btn-primary mt-4" href={`/blog/${post.slug}`}> Read More </a>
 </div>
