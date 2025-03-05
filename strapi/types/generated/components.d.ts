@@ -32,7 +32,7 @@ export interface ComponentInfo extends Struct.ComponentSchema {
     displayName: 'info';
   };
   attributes: {
-    description: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
     title: Schema.Attribute.String;
   };
 }
@@ -86,7 +86,7 @@ export interface ComponentPlanItem extends Struct.ComponentSchema {
     button: Schema.Attribute.Component<'shared.button', false>;
     features: Schema.Attribute.Component<'shared.strings', true>;
     price: Schema.Attribute.Decimal;
-    recommended: Schema.Attribute.Boolean;
+    recommended: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<['month', 'year']>;
@@ -198,7 +198,7 @@ export interface SharedButton extends Struct.ComponentSchema {
     displayName: 'button';
   };
   attributes: {
-    Enable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    enable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     Label: Schema.Attribute.String;
     Link: Schema.Attribute.String;
   };

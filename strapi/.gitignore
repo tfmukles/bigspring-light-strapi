@@ -42,7 +42,6 @@ $RECYCLE.BIN/
 *.csv
 *.dat
 *.dmg
-*.gz
 *.iso
 *.jar
 *.rar
@@ -83,7 +82,6 @@ ssl
 .idea
 nbproject
 public/uploads/*
-config/databases.ts
 !public/uploads/.gitkeep
 .tsbuildinfo
 .eslintcache

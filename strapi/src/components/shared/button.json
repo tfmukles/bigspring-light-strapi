@@ -12,7 +12,7 @@
     "Link": {
       "type": "string"
     },
-    "Enable": {
+    "enable": {
       "type": "boolean",
       "default": true
     }

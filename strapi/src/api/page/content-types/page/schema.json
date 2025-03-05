@@ -22,6 +22,10 @@
     },
     "slug": {
       "type": "string"
+    },
+    "draft": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

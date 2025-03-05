@@ -30,6 +30,16 @@
     },
     "richText": {
       "type": "richtext"
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "draft": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
